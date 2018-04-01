@@ -176,7 +176,7 @@ class serieView: SKScene {
         let touch = touches.first
         let touchLocation = touch!.location(in: self)
         
-        delta = (-touchLocation.y+oldLocation.y)
+        delta = (-touchLocation.y+oldLocation.y)*5/8
         oldLocation = touchLocation
         
     }
