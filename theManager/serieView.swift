@@ -23,6 +23,8 @@ class serieView: SKScene {
     var matchButtonNode = SKNode()
     var allMatchNode = SKNode()
     var allTeamNode = SKNode()
+    var bottomNode = SKNode()
+    var topMenu = SKNode()
     
     var oldLocation = CGPoint()
     var delta = CGFloat()
@@ -71,12 +73,38 @@ class serieView: SKScene {
         }
         actSerie.liveTable()
         
+        // Topnode
+        
         let header = topHeader(xD: 0, yD: UIScreen.main.bounds.height*0.95, theBlock : CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.05), fontS: UIScreen.main.bounds.height*0.03, textString: "Pussyfuckers", textString2: "")
         
         addChild(topNode)
         topNode.addChild(header)
         
         
+        let widthHeight = screenSize.width/screenSize.height
+        
+        // TopMenu
+        
+        createLink(xK: 0.0, yK:0.89, bx: 0.25*widthHeight, by: 0.06, linkText: "", image: "bottomIcon", bgColor: UIColor.lightGray, id: 1, fSize: 0, addNode: topMenu)
+        createLink(xK: 0.25*widthHeight, yK:0.89, bx: 0.25*widthHeight, by: 0.06, linkText: "", image: "bottomIcon", bgColor: UIColor.lightGray, id: 2, fSize: 0, addNode: topMenu)
+        createLink(xK: 0.5*widthHeight, yK:0.89, bx: 0.25*widthHeight, by: 0.06, linkText: "", image: "bottomIcon", bgColor: UIColor.lightGray, id: 3, fSize: 0, addNode: topMenu)
+        createLink(xK: 0.75*widthHeight, yK:0.89, bx: 0.25*widthHeight, by: 0.06, linkText: "", image: "bottomIcon", bgColor: UIColor.lightGray, id: 4, fSize: 0, addNode: topMenu)
+        
+        topMenu.zPosition = 20
+        
+        addChild(topMenu)
+        
+        
+        // Bottomnode
+        
+        createLink(xK: 0.0, yK:0, bx: 0.25*widthHeight, by: 0.06, linkText: "", image: "bottomIcon", bgColor: UIColor.lightGray, id: 1, fSize: 0, addNode: bottomNode)
+        createLink(xK: 0.25*widthHeight, yK:0, bx: 0.25*widthHeight, by: 0.06, linkText: "", image: "bottomIcon", bgColor: UIColor.lightGray, id: 2, fSize: 0, addNode: bottomNode)
+        createLink(xK: 0.5*widthHeight, yK:0, bx: 0.25*widthHeight, by: 0.06, linkText: "", image: "bottomIcon", bgColor: UIColor.lightGray, id: 3, fSize: 0, addNode: bottomNode)
+        createLink(xK: 0.75*widthHeight, yK:0, bx: 0.25*widthHeight, by: 0.06, linkText: "", image: "bottomIcon", bgColor: UIColor.lightGray, id: 4, fSize: 0, addNode: bottomNode)
+        
+        bottomNode.zPosition = 20
+        
+        addChild(bottomNode)
         
         addChild(teamButtonNode)
         addChild(matchButtonNode)
@@ -108,14 +136,14 @@ class serieView: SKScene {
                 altColor = UIColor.gray
             }
             
-            createLink(xK: 0.0, yK:0.9-CGFloat(i)*0.04, bx: 0.03, by: 0.04, linkText: String(actSerie.teams[iRank].place) + ".", image: "", bgColor: altColor, id: actSerie.teams[iRank].place, fSize: 0.02, addNode: teamButtonNode)
-            createLink(xK: 0.03, yK:0.9-CGFloat(i)*0.04, bx: 0.2, by: 0.04, linkText: actSerie.teams[iRank].teamName, image: "", bgColor: altColor, id: actSerie.teams[iRank].place, fSize: 0.02, addNode: teamButtonNode)
-            createLink(xK: 0.23, yK:0.9-CGFloat(i)*0.04, bx: 0.035, by: 0.04, linkText: String(actSerie.teams[iRank].wins), image: "", bgColor: altColor, id: actSerie.teams[iRank].place, fSize: 0.02, addNode: teamButtonNode)
-            createLink(xK: 0.265, yK:0.9-CGFloat(i)*0.04, bx: 0.035, by: 0.04, linkText: String(actSerie.teams[iRank].draw), image: "", bgColor: altColor, id: actSerie.teams[iRank].place, fSize: 0.02, addNode: teamButtonNode)
-            createLink(xK: 0.30, yK:0.9-CGFloat(i)*0.04, bx: 0.035, by: 0.04, linkText: String(actSerie.teams[iRank].loss), image: "", bgColor: altColor, id: actSerie.teams[iRank].place, fSize: 0.02, addNode: teamButtonNode)
-            createLink(xK: 0.335, yK:0.9-CGFloat(i)*0.04, bx: 0.04, by: 0.04, linkText: String(actSerie.teams[iRank].points), image: "", bgColor: altColor, id: actSerie.teams[iRank].place, fSize: 0.02, addNode: teamButtonNode)
-            createLink(xK: 0.38, yK:0.9-CGFloat(i)*0.04, bx: 0.035, by: 0.04, linkText: String(actSerie.teams[iRank].gFor), image: "", bgColor: altColor, id: actSerie.teams[iRank].place, fSize: 0.02, addNode: teamButtonNode)
-            createLink(xK: 0.415, yK:0.9-CGFloat(i)*0.04, bx: 0.035, by: 0.04, linkText: String(actSerie.teams[iRank].gCon), image: "", bgColor: altColor, id: actSerie.teams[iRank].place, fSize: 0.02, addNode: teamButtonNode)
+            createLink(xK: 0.02, yK:0.87-CGFloat(i)*0.04, bx: 0.04, by: 0.04, linkText: String(actSerie.teams[iRank].place) + ".", image: "", bgColor: altColor, id: actSerie.teams[iRank].place, fSize: 0.02, addNode: teamButtonNode)
+            createLink(xK: 0.055, yK:0.87-CGFloat(i)*0.04, bx: 0.225, by: 0.04, linkText: actSerie.teams[iRank].teamName, image: "", bgColor: altColor, id: actSerie.teams[iRank].place, fSize: 0.02, addNode: teamButtonNode)
+            createLink(xK: 0.27, yK:0.87-CGFloat(i)*0.04, bx: 0.04, by: 0.04, linkText: String(actSerie.teams[iRank].wins), image: "", bgColor: altColor, id: actSerie.teams[iRank].place, fSize: 0.02, addNode: teamButtonNode)
+            createLink(xK: 0.305, yK:0.87-CGFloat(i)*0.04, bx: 0.04, by: 0.04, linkText: String(actSerie.teams[iRank].draw), image: "", bgColor: altColor, id: actSerie.teams[iRank].place, fSize: 0.02, addNode: teamButtonNode)
+            createLink(xK: 0.34, yK:0.87-CGFloat(i)*0.04, bx: 0.04, by: 0.04, linkText: String(actSerie.teams[iRank].loss), image: "", bgColor: altColor, id: actSerie.teams[iRank].place, fSize: 0.02, addNode: teamButtonNode)
+            createLink(xK: 0.375, yK:0.87-CGFloat(i)*0.04, bx: 0.06, by: 0.04, linkText: String(actSerie.teams[iRank].points), image: "", bgColor: altColor, id: actSerie.teams[iRank].place, fSize: 0.02, addNode: teamButtonNode)
+            createLink(xK: 0.42, yK:0.87-CGFloat(i)*0.04, bx: 0.04, by: 0.04, linkText: String(actSerie.teams[iRank].gFor), image: "", bgColor: altColor, id: actSerie.teams[iRank].place, fSize: 0.02, addNode: teamButtonNode)
+            createLink(xK: 0.455, yK:0.87-CGFloat(i)*0.04, bx: 0.04, by: 0.04, linkText: String(actSerie.teams[iRank].gCon), image: "", bgColor: altColor, id: actSerie.teams[iRank].place, fSize: 0.02, addNode: teamButtonNode)
             
         }
         
@@ -126,13 +154,13 @@ class serieView: SKScene {
         for i in 1...nMatches {
             let altcolor = UIColor.darkGray
             
-            createLink(xK: 0.0, yK:0.55-CGFloat(i)*0.04-CGFloat(actSerie.matches[i].omgang)*0.05, bx: 0.17, by: 0.04, linkText: actSerie.matches[i].homeTeam.teamName, image: "", bgColor: altcolor, id: i, fSize: 0.02, addNode: teamButtonNode)
-            createLink(xK: 0.17, yK:0.55-CGFloat(i)*0.04-CGFloat(actSerie.matches[i].omgang)*0.05, bx: 0.02, by: 0.04, linkText: "-", image: "", bgColor: altcolor, id: i, fSize: 0.02, addNode: matchButtonNode)
-            createLink(xK: 0.19, yK:0.55-CGFloat(i)*0.04-CGFloat(actSerie.matches[i].omgang)*0.05, bx: 0.17, by: 0.04, linkText: actSerie.matches[i].awayTeam.teamName, image: "", bgColor: altcolor, id: i, fSize: 0.02, addNode: teamButtonNode)
+            createLink(xK: 0.02, yK:0.55-CGFloat(i)*0.04-CGFloat(actSerie.matches[i].omgang)*0.05, bx: 0.17, by: 0.04, linkText: actSerie.matches[i].homeTeam.teamName, image: "", bgColor: altcolor, id: i, fSize: 0.02, addNode: teamButtonNode)
+            createLink(xK: 0.19, yK:0.55-CGFloat(i)*0.04-CGFloat(actSerie.matches[i].omgang)*0.05, bx: 0.02, by: 0.04, linkText: "-", image: "", bgColor: altcolor, id: i, fSize: 0.02, addNode: matchButtonNode)
+            createLink(xK: 0.21, yK:0.55-CGFloat(i)*0.04-CGFloat(actSerie.matches[i].omgang)*0.05, bx: 0.17, by: 0.04, linkText: actSerie.matches[i].awayTeam.teamName, image: "", bgColor: altcolor, id: i, fSize: 0.02, addNode: teamButtonNode)
             
-            createLink(xK: 0.36, yK:0.55-CGFloat(i)*0.04-CGFloat(actSerie.matches[i].omgang)*0.05, bx: 0.03, by: 0.04, linkText: String(actSerie.matches[i].homeGoal), image: "", bgColor: altcolor, id: i, fSize: 0.02, addNode: matchButtonNode)
-            createLink(xK: 0.39, yK:0.55-CGFloat(i)*0.04-CGFloat(actSerie.matches[i].omgang)*0.05, bx: 0.03, by: 0.04, linkText: "-", image: "", bgColor: altcolor, id: i, fSize: 0.02, addNode: matchButtonNode)
-            createLink(xK: 0.42, yK:0.55-CGFloat(i)*0.04-CGFloat(actSerie.matches[i].omgang)*0.05, bx: 0.03, by: 0.04, linkText: String(actSerie.matches[i].awayGoal), image: "", bgColor: altcolor, id: i, fSize: 0.02, addNode: matchButtonNode)
+            createLink(xK: 0.38, yK:0.55-CGFloat(i)*0.04-CGFloat(actSerie.matches[i].omgang)*0.05, bx: 0.03, by: 0.04, linkText: String(actSerie.matches[i].homeGoal), image: "", bgColor: altcolor, id: i, fSize: 0.02, addNode: matchButtonNode)
+            createLink(xK: 0.41, yK:0.55-CGFloat(i)*0.04-CGFloat(actSerie.matches[i].omgang)*0.05, bx: 0.03, by: 0.04, linkText: "-", image: "", bgColor: altcolor, id: i, fSize: 0.02, addNode: matchButtonNode)
+            createLink(xK: 0.44, yK:0.55-CGFloat(i)*0.04-CGFloat(actSerie.matches[i].omgang)*0.05, bx: 0.03, by: 0.04, linkText: String(actSerie.matches[i].awayGoal), image: "", bgColor: altcolor, id: i, fSize: 0.02, addNode: matchButtonNode)
             
         }
         
@@ -143,13 +171,13 @@ class serieView: SKScene {
         for i in 1...nMatches {
             let altcolor = UIColor.darkGray
             
-            createLink(xK: 0.0, yK:0.9-CGFloat(i)*0.04-CGFloat(actSerie.matches[i].omgang)*0.05, bx: 0.17, by: 0.04, linkText: actSerie.matches[i].homeTeam.teamName, image: "", bgColor: altcolor, id: i, fSize: 0.02, addNode: allTeamNode)
-            createLink(xK: 0.17, yK:0.9-CGFloat(i)*0.04-CGFloat(actSerie.matches[i].omgang)*0.05, bx: 0.02, by: 0.04, linkText: "-", image: "", bgColor: altcolor, id: i, fSize: 0.02, addNode: allMatchNode)
-            createLink(xK: 0.19, yK:0.9-CGFloat(i)*0.04-CGFloat(actSerie.matches[i].omgang)*0.05, bx: 0.17, by: 0.04, linkText: actSerie.matches[i].awayTeam.teamName, image: "", bgColor: altcolor, id: i, fSize: 0.02, addNode: allTeamNode)
+            createLink(xK: 0.02, yK:0.9-CGFloat(i)*0.04-CGFloat(actSerie.matches[i].omgang)*0.05, bx: 0.17, by: 0.04, linkText: actSerie.matches[i].homeTeam.teamName, image: "", bgColor: altcolor, id: i, fSize: 0.02, addNode: allTeamNode)
+            createLink(xK: 0.19, yK:0.9-CGFloat(i)*0.04-CGFloat(actSerie.matches[i].omgang)*0.05, bx: 0.02, by: 0.04, linkText: "-", image: "", bgColor: altcolor, id: i, fSize: 0.02, addNode: allMatchNode)
+            createLink(xK: 0.21, yK:0.9-CGFloat(i)*0.04-CGFloat(actSerie.matches[i].omgang)*0.05, bx: 0.17, by: 0.04, linkText: actSerie.matches[i].awayTeam.teamName, image: "", bgColor: altcolor, id: i, fSize: 0.02, addNode: allTeamNode)
             
-            createLink(xK: 0.36, yK:0.9-CGFloat(i)*0.04-CGFloat(actSerie.matches[i].omgang)*0.05, bx: 0.03, by: 0.04, linkText: String(actSerie.matches[i].homeGoal), image: "", bgColor: altcolor, id: i, fSize: 0.02, addNode: allMatchNode)
-            createLink(xK: 0.39, yK:0.9-CGFloat(i)*0.04-CGFloat(actSerie.matches[i].omgang)*0.05, bx: 0.03, by: 0.04, linkText: "-", image: "", bgColor: altcolor, id: i, fSize: 0.02, addNode: allMatchNode)
-            createLink(xK: 0.42, yK:0.9-CGFloat(i)*0.04-CGFloat(actSerie.matches[i].omgang)*0.05, bx: 0.03, by: 0.04, linkText: String(actSerie.matches[i].awayGoal), image: "", bgColor: altcolor, id: i, fSize: 0.02, addNode: allMatchNode)
+            createLink(xK: 0.38, yK:0.9-CGFloat(i)*0.04-CGFloat(actSerie.matches[i].omgang)*0.05, bx: 0.03, by: 0.04, linkText: String(actSerie.matches[i].homeGoal), image: "", bgColor: altcolor, id: i, fSize: 0.02, addNode: allMatchNode)
+            createLink(xK: 0.41, yK:0.9-CGFloat(i)*0.04-CGFloat(actSerie.matches[i].omgang)*0.05, bx: 0.03, by: 0.04, linkText: "-", image: "", bgColor: altcolor, id: i, fSize: 0.02, addNode: allMatchNode)
+            createLink(xK: 0.44, yK:0.9-CGFloat(i)*0.04-CGFloat(actSerie.matches[i].omgang)*0.05, bx: 0.03, by: 0.04, linkText: String(actSerie.matches[i].awayGoal), image: "", bgColor: altcolor, id: i, fSize: 0.02, addNode: allMatchNode)
             
         }
         
@@ -161,14 +189,6 @@ class serieView: SKScene {
         let touch = touches.first
         let touchLocation = touch!.location(in: self)
         oldLocation = touchLocation
-        /*
-        matchButtonNode.removeFromParent()
-        teamButtonNode.removeFromParent()
-        
-        addChild(allMatchNode)
-        addChild(allTeamNode)
-        */
-        
         
     }
     
@@ -191,6 +211,30 @@ class serieView: SKScene {
             if button.contains(touchLocation) {
                 GameScene.currTeam = actSerie.teams[button.id]
                 moveToTeam()
+            }
+            
+        }
+        
+        
+        
+        for button in bottomNode.children as! [link] {
+            
+            if button.contains(touchLocation) {
+                
+                if button.id == 1 {
+                    matchButtonNode.removeFromParent()
+                    teamButtonNode.removeFromParent()
+            
+                    addChild(allMatchNode)
+                    addChild(allTeamNode)
+                }
+                if button.id == 2 {
+                    allMatchNode.removeFromParent()
+                    allTeamNode.removeFromParent()
+                    
+                    addChild(matchButtonNode)
+                    addChild(teamButtonNode)
+                }
             }
             
         }

@@ -81,9 +81,6 @@ class teamObject: AnyObject {
         self.players[position].moral = Int(arc4random_uniform(5)+1)
         self.players[position].teamplay = Int(arc4random_uniform(5)+1)
         
-        
-        
-        
     }
     
     func countTeam() -> Int {
@@ -102,7 +99,7 @@ class teamObject: AnyObject {
     
     func teamStrength() -> CGFloat {
      
-        var totCount = self.countTeam()
+        let totCount = self.countTeam()
         
         var teamStrength:CGFloat = 0
         
@@ -125,8 +122,8 @@ class teamObject: AnyObject {
     
     func generateForname() -> String {
         
-        let forname = ["Fredrik", "Tony", "Daniel", "Emir", "Kenny", "Johan"]
-        let n = Int(arc4random_uniform(6))
+        let forname = ["Fredrik", "Tony", "Daniel", "Emir", "Kenny", "Johan", "Carl", "Julian", "August", "Fredrik", "Marty", "Isak", "Pascal", "Shaque"]
+        let n = Int(arc4random_uniform(12))
         
         let fname = forname[n]
         
@@ -135,8 +132,8 @@ class teamObject: AnyObject {
     }
     func generateSurname() -> String {
         
-        let surname = ["Altay", "Chopra", "Chabiuk", "Andersson", "Berggren", "Isak"]
-        let n = Int(arc4random_uniform(6))
+        let surname = ["Altay", "Chopra", "Chabiuk", "Andersson", "Berggren", "Isak", "Rios", "Jonsson", "Lönn", "Kukic", "Bild", "Leboufe"]
+        let n = Int(arc4random_uniform(12))
         
         let sname = surname[n]
         

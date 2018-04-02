@@ -32,8 +32,8 @@ class link: SKShapeNode {
         self.id = 0
         
         link = SKLabelNode(text: linkText)
-        link.position = CGPoint(x: xD+theBlock.width*0.05, y: yD+theBlock.height/2)
-        link.verticalAlignmentMode = .center
+        link.position = CGPoint(x: xD+theBlock.width*0.2, y: yD+theBlock.height*0.3)
+        //link.verticalAlignmentMode = .bottom
         link.horizontalAlignmentMode = .left
         link.fontName = "HelveticaNeue-Medium"
         link.fontSize = fontS
@@ -44,8 +44,18 @@ class link: SKShapeNode {
         if imageName != "" {
             img = SKSpriteNode(imageNamed: imageName)
             img.position = CGPoint(x: xD+theBlock.width*0.5, y: yD+theBlock.height/2)
-            img.size.height = theBlock.height*0.8
-            img.size.width = theBlock.width*0.8
+            
+            if theBlock.height <= theBlock.width {
+                
+                img.size.height = theBlock.height*0.8
+                img.size.width = theBlock.height*0.8
+            }
+            if theBlock.height >= theBlock.width {
+                
+                img.size.height = theBlock.width*0.8
+                img.size.width = theBlock.width*0.8
+            }
+            
     
         
             self.addChild(img)
