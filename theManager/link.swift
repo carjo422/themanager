@@ -19,41 +19,58 @@ class link: SKShapeNode {
     var linkText: String!
     var bgColor: UIColor!
     var id: Int!
-    var area: Int!
+    var active: Int!
+    var src: String!
     
-    init(xD: CGFloat, yD: CGFloat, theBlock : CGSize, fontS: CGFloat, linkText: String, bgColor: UIColor, imageName: String) {
+    init(xD: CGFloat, yD: CGFloat, w: CGFloat, h: CGFloat, bgColor: UIColor,  linkText: String, imageName: String, src: String) {
         super.init()
         
-        let rect = CGRect(origin: CGPoint(x: xD, y: yD), size: CGSize(width: theBlock.width, height: theBlock.height))
+        let screenSize = UIScreen.main.fixedCoordinateSpace.bounds
+        
+        let rect = CGRect(origin: CGPoint(x: xD, y: yD), size: CGSize(width: w, height: h))
         self.path = CGPath(rect: rect, transform: nil)
-        self.fillColor = bgColor
+        
         self.alpha = 1
         self.lineWidth = 0
         self.id = 0
+        self.active = 0
+        self.fillColor = bgColor
+        self.lineWidth = 1
+        self.isUserInteractionEnabled=true
+        self.src = src
         
         link = SKLabelNode(text: linkText)
-        link.position = CGPoint(x: xD+theBlock.width*0.2, y: yD+theBlock.height*0.3)
-        //link.verticalAlignmentMode = .bottom
+        
+        if w > screenSize.height/10 {
+        link.position = CGPoint(x: xD+screenSize.height*0.015, y: yD+h*0.35)
         link.horizontalAlignmentMode = .left
+        }
+        else {
+            link.position = CGPoint(x: xD+w/2, y: yD+h*0.35)
+            link.horizontalAlignmentMode = .center
+        }
+        
+        
         link.fontName = "HelveticaNeue-Medium"
-        link.fontSize = fontS
+        link.fontSize = h*0.4
         link.text = linkText
+        link.fontColor = UIColor.black
         
         self.addChild(link)
         
         if imageName != "" {
             img = SKSpriteNode(imageNamed: imageName)
-            img.position = CGPoint(x: xD+theBlock.width*0.5, y: yD+theBlock.height/2)
+            img.position = CGPoint(x: xD+w/2, y: yD+h/2)
             
-            if theBlock.height <= theBlock.width {
+            if img.size.height <= img.size.width {
                 
-                img.size.height = theBlock.height*0.8
-                img.size.width = theBlock.height*0.8
+                img.size.height = screenSize.height*0.045
+                img.size.width = screenSize.height*0.045
             }
-            if theBlock.height >= theBlock.width {
+            if img.size.height >= img.size.width {
                 
-                img.size.height = theBlock.width*0.8
-                img.size.width = theBlock.width*0.8
+                img.size.height = screenSize.height*0.045
+                img.size.width = screenSize.height*0.045
             }
             
     
@@ -61,12 +78,23 @@ class link: SKShapeNode {
             self.addChild(img)
             
         }
-        
-        
+
     }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        /*let touch = touches.first
+        let touchLocation = touch!.location(in: self)*/
+        
+        if self.src == "Squad" {
+            //serieView().moveToTeam()
+        }
+        
+        
     }
     
 }

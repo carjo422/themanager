@@ -18,29 +18,29 @@ class topHeader: SKShapeNode {
     var headerText : SKLabelNode!
     var headerSubText : SKLabelNode!
     
-    init(xD: CGFloat, yD: CGFloat, theBlock : CGSize, fontS: CGFloat, textString: String, textString2: String) {
+    init(textString: String, textString2: String) {
         super.init()
         
-        var rect = CGRect(x: xD, y: yD, width: theBlock.width, height: theBlock.height)
+        let rect = CGRect(x: 0, y: UIScreen.main.bounds.height*0.95, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height*0.05)
         self.path = CGPath(rect: rect, transform: nil)
         self.fillColor = UIColor.black
         self.name = "Team"
         self.lineWidth = 0
         
         headerText = SKLabelNode(text: textString)
-        headerText.position = CGPoint(x: xD+theBlock.width*0.02, y: yD+theBlock.height/2)
+        headerText.position = CGPoint(x: UIScreen.main.bounds.width*0.02, y: UIScreen.main.bounds.height*0.975)
         headerText.verticalAlignmentMode = .center
         headerText.horizontalAlignmentMode = .left
         headerText.fontName = "HelveticaNeue-Medium"
-        headerText.fontSize = fontS
+        headerText.fontSize = UIScreen.main.bounds.height*0.03
         headerText.name = "Header"
         
         headerSubText = SKLabelNode(text: textString2)
-        headerSubText.position = CGPoint(x: xD+theBlock.width*0.98, y: yD+theBlock.height/2)
+        headerText.position = CGPoint(x: UIScreen.main.bounds.width*0.02, y: UIScreen.main.bounds.height*0.975)
         headerSubText.verticalAlignmentMode = .center
         headerSubText.horizontalAlignmentMode = .right
         headerSubText.fontName = "HelveticaNeue-Medium"
-        headerSubText.fontSize = fontS
+        headerSubText.fontSize = UIScreen.main.bounds.height*0.03
         headerSubText.name = "HeaderSub"
         
         self.addChild(headerText)

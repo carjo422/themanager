@@ -21,71 +21,26 @@ class serie: AnyObject {
     var teams = [teamObject](repeatElement(teamObject(), count:64))
     var matches = [matchObject](repeatElement(matchObject(), count:128))
     
-    init() {
-        self.serieName = ""
-        self.serieAge = 0
-        self.serieRank = 0
+    init(sName: String, sAge: Int, sRank: Int) {
+        self.serieName = sName
+        self.serieAge = sAge
+        self.serieRank = sRank
         self.teams = [teamObject](repeatElement(teamObject(), count:64))
         self.matches = [matchObject](repeatElement(matchObject(), count:128))
     }
     
-    func fillTeams() {
+    func fillTeams(idArray: [Int]) -> Void {
         
-        self.teams.insert(teamObject(),at: 1)
-        self.teams.insert(teamObject(),at: 2)
-        self.teams.insert(teamObject(),at: 3)
-        self.teams.insert(teamObject(),at: 4)
-        self.teams.insert(teamObject(),at: 5)
-        self.teams.insert(teamObject(),at: 6)
-        self.teams.insert(teamObject(),at: 7)
-        self.teams.insert(teamObject(),at: 8)
+        for i in 1...idArray.count {
+            
+            self.teams.insert(teamObject(),at: i)
+            
+            self.teams[i].generateTeam(id: i)
+            self.teams[i].place=i
+            self.teams[i].createPlayers()
+            
+        }
         
-        
-        self.teams[1].teamName = "IFK Göteborg"
-        self.teams[2].teamName = "BK Häcken"
-        self.teams[3].teamName = "BK Azalea"
-        self.teams[4].teamName = "Sävedalens IK"
-        self.teams[5].teamName = "Angereds IF"
-        self.teams[6].teamName = "Örgryte IS"
-        self.teams[7].teamName = "Utsiktens BK"
-        self.teams[8].teamName = "Bernasunds IK"
-        
-        self.teams[1].place = 1
-        self.teams[2].place = 1
-        self.teams[3].place = 1
-        self.teams[4].place = 1
-        self.teams[5].place = 1
-        self.teams[6].place = 1
-        self.teams[7].place = 1
-        self.teams[8].place = 1
-        
-        
-        self.teams[1].teamColor = UIColor.blue
-        self.teams[2].teamColor = UIColor.yellow
-        self.teams[3].teamColor = UIColor.red
-        self.teams[4].teamColor = UIColor.white
-        self.teams[5].teamColor = UIColor.green
-        self.teams[6].teamColor = UIColor.red
-        self.teams[7].teamColor = UIColor.red
-        self.teams[8].teamColor = UIColor.black
-        
-        self.teams[1].secColor = UIColor.blue
-        self.teams[2].secColor = UIColor.black
-        self.teams[3].secColor = UIColor.white
-        self.teams[4].secColor = UIColor.red
-        self.teams[5].secColor = UIColor.white
-        self.teams[6].secColor = UIColor.blue
-        self.teams[7].secColor = UIColor.white
-        self.teams[8].secColor = UIColor.white
-        
-        self.teams[1].createPlayers()
-        self.teams[2].createPlayers()
-        self.teams[3].createPlayers()
-        self.teams[4].createPlayers()
-        self.teams[5].createPlayers()
-        self.teams[6].createPlayers()
-        self.teams[7].createPlayers()
-        self.teams[8].createPlayers()
     }
     
     func createMatches() {

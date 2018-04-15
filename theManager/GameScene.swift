@@ -9,28 +9,24 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: modScene {
     
-    static var currSerie = serie()
-    static var currPlay = playerObject()
-    static var currTeam = teamObject()
-    static var currMatch = matchObject()
+    static var series = [serie]()
+    static var teams = [teamObject]()
+    static var players = [playerObject]()
     
     
-    var home_team = SKLabelNode()
-    var away_team = SKLabelNode()
     
-    var home_team_score = SKLabelNode()
-    var away_team_score = SKLabelNode()
-    
-    var home_team_player1 = SKLabelNode()
-    var away_team_player1 = SKLabelNode()
-    
+
     
     override func didMove(to view: SKView) {
         
-        GameScene.currSerie.fillTeams()
-        GameScene.currSerie.createMatches()
+        //GameScene.currSerie.fillTeams()
+        //GameScene.currSerie.createMatches()
+        
+        //var team1 = teamObject()
+        //team1.generateTeam()
+        
         
     }
     
@@ -60,14 +56,6 @@ class GameScene: SKScene {
     
     
     override func update(_ currentTime: TimeInterval) {
-    
-        
-        let extScene = serieView(size: self.scene!.size)
-        extScene.scaleMode = SKSceneScaleMode.resizeFill
-        
-        let transition = SKTransition.fade(with : UIColor(red: 0, green: 0.0, blue: 0, alpha: 1.0), duration: 1)
-        self.scene!.view!.presentScene(extScene, transition: transition)
-        
         
     }
 }

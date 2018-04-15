@@ -27,6 +27,7 @@
 		7BEE1433206D11FA00D024E3 /* playerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE1432206D11FA00D024E3 /* playerView.swift */; };
 		7BEE1435206D57BE00D024E3 /* statNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE1434206D57BE00D024E3 /* statNode.swift */; };
 		7BF49CB7206A7CA200E980F6 /* topHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF49CB6206A7CA200E980F6 /* topHeader.swift */; };
+		7BF4DA98207F6D8300F60C10 /* modScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF4DA97207F6D8300F60C10 /* modScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		7BEE1432206D11FA00D024E3 /* playerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = playerView.swift; sourceTree = "<group>"; };
 		7BEE1434206D57BE00D024E3 /* statNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = statNode.swift; sourceTree = "<group>"; };
 		7BF49CB6206A7CA200E980F6 /* topHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = topHeader.swift; sourceTree = "<group>"; };
+		7BF4DA97207F6D8300F60C10 /* modScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = modScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				7BE9D2912068170800BB0C17 /* teamView.swift */,
 				7BEE1432206D11FA00D024E3 /* playerView.swift */,
 				7BB7DF8D206F71C0006E5362 /* serieView.swift */,
+				7BF4DA97207F6D8300F60C10 /* modScene.swift */,
 				7BB7DF8F2070D993006E5362 /* scrollNode.swift */,
 				7BEE1434206D57BE00D024E3 /* statNode.swift */,
 				7B5C22A3206E0FBB007B1F9C /* meter.swift */,
@@ -184,6 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BF4DA98207F6D8300F60C10 /* modScene.swift in Sources */,
 				7BB7DF902070D993006E5362 /* scrollNode.swift in Sources */,
 				7BE9D2762067A0B900BB0C17 /* GameScene.swift in Sources */,
 				7BE9D2882067A78200BB0C17 /* teamObject.swift in Sources */,

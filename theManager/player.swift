@@ -18,6 +18,8 @@ class playerObject: AnyObject {
     var surName:String
     var age:Int
     
+    var id:Int
+    
     var forward:Int
     var midfield:Int
     var defence:Int
@@ -66,6 +68,8 @@ class playerObject: AnyObject {
         self.moral = 5
         self.teamplay = 5
         self.stamina = 5
+        
+        self.id = 0
         
         self.total = CGFloat(self.speed+self.skill+self.shot+self.pass+self.head+self.dribble)
         

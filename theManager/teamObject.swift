@@ -15,6 +15,7 @@ class teamObject: AnyObject {
     //var players:[playerObject]()
     
     var teamName:String
+    var shortName:String
     var teamColor:UIColor
     var secColor:UIColor
     var players = [playerObject](repeatElement(playerObject(), count:20))
@@ -26,10 +27,12 @@ class teamObject: AnyObject {
     var gCon: Int
     var points: Int
     var rankScore: Double
+    var id: Int
     
     init() {
         
         self.teamName = ""
+        self.shortName = ""
         self.teamColor = UIColor.black
         self.secColor = UIColor.black
         self.players = [playerObject](repeatElement(playerObject(), count:20))
@@ -41,6 +44,66 @@ class teamObject: AnyObject {
         self.gCon = 0
         self.points = 0
         self.rankScore = 0.0
+        self.id = 0
+        
+    }
+    
+    func generateTeam(id: Int) {
+        
+        let randNumbers: [Int] = [Int(arc4random_uniform(10)),Int(arc4random_uniform(10)),Int(arc4random_uniform(10)),Int(arc4random_uniform(10))]
+        
+        self.id = id
+        
+        let startNameVector: [String] = ["Varg","Blomster","Sommar","Ätar","Vinter","Äpple","Skogs","Öken","Körsbärs","Betong"]
+        let endNameVector: [String] = ["berget","berg","torp","holmen","viken","dalen","lund","borg","hög","fors"]
+        let animalVector: [String] = ["Örnar","Rävar","Tordyvlar","Sorkar","Tigrar","Lejon","Älgar","Leoparder","Vargar","Hajar"]
+        
+        self.teamName = startNameVector[randNumbers[0]] + endNameVector[randNumbers[1]] + "s " + animalVector[randNumbers[2]]
+        self.shortName = startNameVector[randNumbers[0]] + endNameVector[randNumbers[1]]
+        
+        if randNumbers[3] == 1 {
+            self.teamColor = UIColor.blue
+            self.teamColor = UIColor.white
+        }
+        if randNumbers[3] == 2 {
+            self.teamColor = UIColor.red
+            self.teamColor = UIColor.white
+        }
+        if randNumbers[3] == 3 {
+            self.teamColor = UIColor.white
+            self.teamColor = UIColor.black
+        }
+        if randNumbers[3] == 4 {
+            self.teamColor = UIColor.yellow
+            self.teamColor = UIColor.black
+        }
+        if randNumbers[3] == 5 {
+            self.teamColor = UIColor.black
+            self.teamColor = UIColor.white
+        }
+        if randNumbers[3] == 6 {
+            self.teamColor = UIColor.green
+            self.teamColor = UIColor.white
+        }
+        if randNumbers[3] == 7 {
+            self.teamColor = UIColor.red
+            self.teamColor = UIColor.black
+        }
+        if randNumbers[3] == 8 {
+            self.teamColor = UIColor.purple
+            self.teamColor = UIColor.white
+        }
+        if randNumbers[3] == 9 {
+            self.teamColor = UIColor.white
+            self.teamColor = UIColor.red
+        }
+        if randNumbers[3] == 10 {
+            self.teamColor = UIColor.lightGray
+            self.teamColor = UIColor.black
+        }
+        
+        GameScene.teams.insert(self, at: id)
+        
         
     }
     
@@ -80,6 +143,10 @@ class teamObject: AnyObject {
         self.players[position].courage = Int(arc4random_uniform(5)+1)
         self.players[position].moral = Int(arc4random_uniform(5)+1)
         self.players[position].teamplay = Int(arc4random_uniform(5)+1)
+        
+        self.players[position].id = GameScene.players.count+1
+        
+        GameScene.players.insert(self.players[position], at: GameScene.players.count+1)
         
     }
     

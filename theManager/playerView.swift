@@ -20,10 +20,10 @@ class playerView: SKScene {
         
     override func didMove(to view: SKView) {
         
-        actTeam = GameScene.currTeam
-        actPlayer = GameScene.currPlay
+        //actTeam = GameScene.currTeam
+        //actPlayer = GameScene.currPlay
         
-        let header = topHeader(xD: 0, yD: UIScreen.main.bounds.height*0.95, theBlock : CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.05), fontS: UIScreen.main.bounds.height*0.03, textString: actPlayer.forName + " " + actPlayer.surName, textString2: actTeam.teamName)
+        let header = topHeader(textString: actPlayer.forName + " " + actPlayer.surName, textString2: actTeam.teamName)
         
         let baseStat1 = statNode(stat: "Ålder:", value: String(actPlayer.age))
         let baseStat2 = statNode(stat: "Position:", value: "FW/MF/DF")
