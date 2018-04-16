@@ -26,6 +26,7 @@
 		7BEE1431206CC92900D024E3 /* link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE1430206CC92900D024E3 /* link.swift */; };
 		7BEE1433206D11FA00D024E3 /* playerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE1432206D11FA00D024E3 /* playerView.swift */; };
 		7BEE1435206D57BE00D024E3 /* statNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE1434206D57BE00D024E3 /* statNode.swift */; };
+		7BEFA2D02083E2FC00960D8C /* overView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEFA2CF2083E2FC00960D8C /* overView.swift */; };
 		7BF49CB7206A7CA200E980F6 /* topHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF49CB6206A7CA200E980F6 /* topHeader.swift */; };
 		7BF4DA98207F6D8300F60C10 /* modScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF4DA97207F6D8300F60C10 /* modScene.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +53,7 @@
 		7BEE1430206CC92900D024E3 /* link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = link.swift; sourceTree = "<group>"; };
 		7BEE1432206D11FA00D024E3 /* playerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = playerView.swift; sourceTree = "<group>"; };
 		7BEE1434206D57BE00D024E3 /* statNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = statNode.swift; sourceTree = "<group>"; };
+		7BEFA2CF2083E2FC00960D8C /* overView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = overView.swift; sourceTree = "<group>"; };
 		7BF49CB6206A7CA200E980F6 /* topHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = topHeader.swift; sourceTree = "<group>"; };
 		7BF4DA97207F6D8300F60C10 /* modScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = modScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +92,7 @@
 				7BE9D2732067A0B900BB0C17 /* Actions.sks */,
 				7BE9D2892067AFE900BB0C17 /* GameScene.sks */,
 				7BE9D2752067A0B900BB0C17 /* GameScene.swift */,
+				7BEFA2CF2083E2FC00960D8C /* overView.swift */,
 				7BE9D2912068170800BB0C17 /* teamView.swift */,
 				7BEE1432206D11FA00D024E3 /* playerView.swift */,
 				7BB7DF8D206F71C0006E5362 /* serieView.swift */,
@@ -198,6 +201,7 @@
 				7BE9D2902067F7F900BB0C17 /* player.swift in Sources */,
 				7BB7DF8E206F71C0006E5362 /* serieView.swift in Sources */,
 				7BEE1435206D57BE00D024E3 /* statNode.swift in Sources */,
+				7BEFA2D02083E2FC00960D8C /* overView.swift in Sources */,
 				7BE9D2702067A0B900BB0C17 /* AppDelegate.swift in Sources */,
 				7BEE1433206D11FA00D024E3 /* playerView.swift in Sources */,
 				7B5C22A4206E0FBB007B1F9C /* meter.swift in Sources */,

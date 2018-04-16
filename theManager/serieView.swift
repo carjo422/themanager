@@ -16,7 +16,7 @@ class serieView: modScene {
     
     let screenSize = UIScreen.main.fixedCoordinateSpace.bounds
     
-    var actSerie = serie(sName: "", sAge: 0, sRank: 0)
+    var actSerie = GameScene.currSerie
     var topNode = SKNode()
     
     var roundNode = SKNode()
@@ -45,14 +45,6 @@ class serieView: modScene {
     var altColor = UIColor.darkGray
     
     
-    /*func scroll(button: link, delta: CGFloat) {
-        button.position.y = button.position.y+delta
-    }*/
-    
-
-    
-    
-    
     
     
     override func didMove(to view: SKView) {
@@ -61,7 +53,6 @@ class serieView: modScene {
         
         /*******************************************Simulation stuff****************************************************/
         
-        //actSerie = GameScene.currSerie
         
         for i in 1...14 {
             actSerie.simulateRound(omgang: i)
@@ -73,7 +64,7 @@ class serieView: modScene {
         
         // Topnode
         
-        let header = topHeader(textString: "P13A Göteborg", textString2: "Right ->")
+        let header = topHeader(textString: String(describing: actSerie.serieName), textString2: "Right ->")
         addChild(header)
         
         
@@ -127,8 +118,8 @@ class serieView: modScene {
             altColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
             
             
-            createLink(xK: 0.02, yK:0.87-CGFloat(i)*0.05, w:0.04, h:0.05, bgColor: altColor, linkText: String(actSerie.teams[iRank].place) + ".", image: "", id: iRank, addNode: roundNode, src: "")
-            createLink(xK: 0.06, yK:0.87-CGFloat(i)*0.05, w:0.22, h:0.05, bgColor: altColor, linkText: actSerie.teams[iRank].shortName, image: "", id: iRank, addNode: roundNode, src: "")
+            createLink(xK: 0.02, yK:0.87-CGFloat(i)*0.05, w:0.04, h:0.05, bgColor: altColor, linkText: String(actSerie.teams[iRank].place) + ".", image: "", id: iRank, addNode: roundNode, src: "T" + String(actSerie.teams[iRank].id))
+            createLink(xK: 0.06, yK:0.87-CGFloat(i)*0.05, w:0.22, h:0.05, bgColor: altColor, linkText: actSerie.teams[iRank].shortName, image: "", id: iRank, addNode: roundNode, src: "T" + String(actSerie.teams[iRank].id))
             createLink(xK: 0.28, yK:0.87-CGFloat(i)*0.05, w:0.04, h:0.05, bgColor: altColor, linkText: String(actSerie.teams[iRank].wins), image: "", id: iRank, addNode: roundNode, src: "")
             createLink(xK: 0.32, yK:0.87-CGFloat(i)*0.05, w:0.04, h:0.05, bgColor: altColor, linkText: String(actSerie.teams[iRank].draw), image: "", id: iRank, addNode: roundNode, src: "")
             createLink(xK: 0.36, yK:0.87-CGFloat(i)*0.05, w:0.04, h:0.05, bgColor: altColor, linkText: String(actSerie.teams[iRank].loss), image: "", id: iRank, addNode: roundNode, src: "")

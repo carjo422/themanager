@@ -14,19 +14,28 @@ class GameScene: modScene {
     static var series = [serie]()
     static var teams = [teamObject]()
     static var players = [playerObject]()
+    /*static var matches = [matchObject]()*/
+    
+    static var currTeam = teamObject()
+    static var currSerie = serie(sName: "", sAge: 0, sRank: 0, id: 1)
+    static var currPlayer = playerObject()
+    /*static var currMatch = matchObject()*/
     
     
-    
+    let seriesNode = SKNode()
 
     
     override func didMove(to view: SKView) {
         
-        //GameScene.currSerie.fillTeams()
-        //GameScene.currSerie.createMatches()
+        /*self.scaleMode = SKSceneScaleMode.resizeFill*/
         
-        //var team1 = teamObject()
-        //team1.generateTeam()
-        
+        createGame()        
+
+        let extScene = overView(size: self.scene!.size)
+        extScene.scaleMode = SKSceneScaleMode.resizeFill
+        self.scene!.view!.presentScene(extScene)
+
+ 
         
     }
     

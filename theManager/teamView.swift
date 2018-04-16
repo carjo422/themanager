@@ -16,8 +16,8 @@ class teamView: SKScene {
     
     let screenSize = UIScreen.main.fixedCoordinateSpace.bounds
     
-    var actTeam = teamObject()
-    var buttonNode = SKNode()
+    var actTeam = GameScene.currTeam
+    //var buttonNode = SKNode()
     var topNode = SKNode()
 
     
@@ -26,7 +26,7 @@ class teamView: SKScene {
         let header = topHeader(textString: actTeam.teamName, textString2: "1a i P13 Östra")
         
         addChild(topNode)
-        addChild(buttonNode)
+        //addChild(buttonNode)
         topNode.addChild(header)
         
         

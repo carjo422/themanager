@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-class playerView: SKScene {
+class playerView: modScene {
     
     let screenSize = UIScreen.main.bounds
     

@@ -102,7 +102,8 @@ class teamObject: AnyObject {
             self.teamColor = UIColor.black
         }
         
-        GameScene.teams.insert(self, at: id)
+
+        GameScene.teams.insert(self, at: id-1)
         
         
     }
@@ -146,7 +147,7 @@ class teamObject: AnyObject {
         
         self.players[position].id = GameScene.players.count+1
         
-        GameScene.players.insert(self.players[position], at: GameScene.players.count+1)
+        GameScene.players.insert(self.players[position], at: GameScene.players.count)
         
     }
     

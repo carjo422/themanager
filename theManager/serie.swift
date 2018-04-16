@@ -20,11 +20,13 @@ class serie: AnyObject {
     var serieRank:Int
     var teams = [teamObject](repeatElement(teamObject(), count:64))
     var matches = [matchObject](repeatElement(matchObject(), count:128))
+    var id:Int
     
-    init(sName: String, sAge: Int, sRank: Int) {
+    init(sName: String, sAge: Int, sRank: Int, id: Int) {
         self.serieName = sName
         self.serieAge = sAge
         self.serieRank = sRank
+        self.id = id
         self.teams = [teamObject](repeatElement(teamObject(), count:64))
         self.matches = [matchObject](repeatElement(matchObject(), count:128))
     }

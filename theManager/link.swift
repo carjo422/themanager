@@ -39,6 +39,7 @@ class link: SKShapeNode {
         self.isUserInteractionEnabled=true
         self.src = src
         
+        
         link = SKLabelNode(text: linkText)
         
         if w > screenSize.height/10 {
@@ -90,8 +91,51 @@ class link: SKShapeNode {
         /*let touch = touches.first
         let touchLocation = touch!.location(in: self)*/
         
-        if self.src == "Squad" {
-            //serieView().moveToTeam()
+        if self.src == "" {
+            
+        }
+            
+        else {
+        
+            let inPart = self.src.substring(to: self.src.index(self.src.startIndex, offsetBy: 1))
+            let outPart = self.src.substring(from: self.src.index(self.src.startIndex, offsetBy: 1))
+        
+            if inPart == "T" {
+            
+                GameScene.currTeam = GameScene.teams[Int(outPart)!]
+                let extScene = teamView(size: self.scene!.size)
+                extScene.scaleMode = SKSceneScaleMode.resizeFill
+                self.scene!.view!.presentScene(extScene)
+            
+            }
+        
+            if inPart == "S" {
+            
+                GameScene.currSerie = GameScene.series[Int(outPart)!-1]
+                let extScene = serieView(size: self.scene!.size)
+                extScene.scaleMode = SKSceneScaleMode.resizeFill
+                self.scene!.view!.presentScene(extScene)
+            
+            }
+        
+            if inPart == "P" {
+            
+                GameScene.currPlayer = GameScene.players[Int(outPart)!-1]
+                let extScene = serieView(size: self.scene!.size)
+                extScene.scaleMode = SKSceneScaleMode.resizeFill
+                self.scene!.view!.presentScene(extScene)
+            
+            }
+        
+            /*if inPart == "M" {
+            
+                GameScene.currSerie = GameScene.series[Int(outPart)!-1]
+                let extScene = matchView(size: self.scene!.size)
+                extScene.scaleMode = SKSceneScaleMode.resizeFill
+                self.scene!.view!.presentScene(extScene)
+            
+            }*/
+            
         }
         
         
