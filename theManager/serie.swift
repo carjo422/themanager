@@ -37,7 +37,7 @@ class serie: AnyObject {
             
             self.teams.insert(teamObject(),at: i)
             
-            self.teams[i].generateTeam(id: i)
+            self.teams[i].generateTeam(id: idArray[i-1])
             self.teams[i].place=i
             self.teams[i].createPlayers()
             
@@ -648,10 +648,9 @@ class serie: AnyObject {
         func simulateRound(omgang: Int) {
         
             for i in 1...56 {
-                if self.matches[i].omgang == omgang {
+                if self.matches[i].omgang == omgang && self.matches[i].matchStatus == 0 {
                     self.matches[i].homeGoal = Int(arc4random_uniform(11))
                     self.matches[i].awayGoal = Int(arc4random_uniform(10))
-                    self.matches[i].matchStatus = 1
                 }
             }
             
@@ -661,7 +660,8 @@ class serie: AnyObject {
     func liveTable() {
         
         for i in 1...56 {
-            if self.matches[i].matchStatus == 1 {
+            if self.matches[i].matchStatus == 0 {
+                self.matches[i].matchStatus = 1
                 if self.matches[i].homeGoal > self.matches[i].awayGoal {
                     self.matches[i].homeTeam.wins = self.matches[i].homeTeam.wins + 1
                     self.matches[i].awayTeam.loss = self.matches[i].awayTeam.loss + 1

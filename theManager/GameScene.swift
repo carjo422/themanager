@@ -21,6 +21,9 @@ class GameScene: modScene {
     static var currPlayer = playerObject()
     /*static var currMatch = matchObject()*/
     
+    static var defaultTeam = 0
+    static var defaultSeries = 0
+    
     
     let seriesNode = SKNode()
 

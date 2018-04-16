@@ -111,7 +111,7 @@ class link: SKShapeNode {
         
             if inPart == "S" {
             
-                GameScene.currSerie = GameScene.series[Int(outPart)!-1]
+                GameScene.currSerie = GameScene.series[Int(outPart)!]
                 let extScene = serieView(size: self.scene!.size)
                 extScene.scaleMode = SKSceneScaleMode.resizeFill
                 self.scene!.view!.presentScene(extScene)
@@ -120,11 +120,11 @@ class link: SKShapeNode {
         
             if inPart == "P" {
             
-                GameScene.currPlayer = GameScene.players[Int(outPart)!-1]
-                let extScene = serieView(size: self.scene!.size)
+                GameScene.currPlayer = GameScene.players[Int(outPart)!]
+                let extScene = playerView(size: self.scene!.size)
                 extScene.scaleMode = SKSceneScaleMode.resizeFill
                 self.scene!.view!.presentScene(extScene)
-            
+                
             }
         
             /*if inPart == "M" {
@@ -135,6 +135,13 @@ class link: SKShapeNode {
                 self.scene!.view!.presentScene(extScene)
             
             }*/
+            
+            if inPart == "W" {
+                
+                let extScene = overView(size: self.scene!.size)
+                extScene.scaleMode = SKSceneScaleMode.resizeFill
+                self.scene!.view!.presentScene(extScene)
+            }
             
         }
         

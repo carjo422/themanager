@@ -11,24 +11,25 @@ import GameplayKit
 
 class modScene: SKScene {
     
+    var altColor = UIColor.darkGray
     
     func createGame() {
         
-        for i in 1...32 {
+        for i in 0...31 {
             let createTeam = teamObject()
             createTeam.generateTeam(id: i)
         }
         
-        let serie1 = serie(sName: "P13 A", sAge: 13, sRank: 1, id: 1)
-        let serie2 = serie(sName: "P13 B", sAge: 13, sRank: 1, id: 2)
-        let serie3 = serie(sName: "P13 C", sAge: 13, sRank: 1, id: 3)
-        let serie4 = serie(sName: "P13 D", sAge: 13, sRank: 1, id: 4)
+        let serie1 = serie(sName: "P13 A", sAge: 13, sRank: 1, id: 0)
+        let serie2 = serie(sName: "P13 B", sAge: 13, sRank: 1, id: 1)
+        let serie3 = serie(sName: "P13 C", sAge: 13, sRank: 1, id: 2)
+        let serie4 = serie(sName: "P13 D", sAge: 13, sRank: 1, id: 3)
         
         
-        serie1.fillTeams(idArray: [1,2,3,4,5,6,7,8])
-        serie2.fillTeams(idArray: [9,10,11,12,13,14,15,16])
-        serie3.fillTeams(idArray: [17,18,19,20,21,22,23,24])
-        serie4.fillTeams(idArray: [25,26,27,28,29,30,31,32])
+        serie1.fillTeams(idArray: [0,1,2,3,4,5,6,7])
+        serie2.fillTeams(idArray: [8,9,10,11,12,13,14,15])
+        serie3.fillTeams(idArray: [16,17,18,19,20,21,22,23])
+        serie4.fillTeams(idArray: [24,25,26,27,28,29,30,31])
         
         serie1.createMatches()
         serie2.createMatches()

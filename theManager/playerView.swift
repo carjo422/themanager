@@ -17,13 +17,50 @@ class playerView: modScene {
     var actPlayer = playerObject()
     var topNode = SKNode()
     var face = SKSpriteNode(imageNamed: "face")
+    
+    var topMenu =  SKNode()
+    var bottomNode = SKNode()
         
     override func didMove(to view: SKView) {
         
-        //actTeam = GameScene.currTeam
-        //actPlayer = GameScene.currPlay
+        actTeam = GameScene.currTeam
+        actPlayer = GameScene.currPlayer
+
         
+        /****************************************Standard stuff on screen************************************************/
+        
+        // Topnode
         let header = topHeader(textString: actPlayer.forName + " " + actPlayer.surName, textString2: actTeam.teamName)
+        
+        topNode.addChild(header)
+        
+        
+        let widthHeight = screenSize.width/screenSize.height
+        
+        // TopMenu
+        
+        //createLink(xK:CGFloat, yK:CGFloat, linkText: String, image: String, id: Int, addNode: SKNode)
+        
+        createLink(xK: 0.0, yK:0.89, w: 0.25*widthHeight, h: 0.06, bgColor: altColor, linkText: "", image: "bottomIcon", id: 1, addNode: topMenu, src: "")
+        createLink(xK: 0.25*widthHeight, yK:0.89, w: 0.25*widthHeight, h: 0.06, bgColor: altColor, linkText: "", image: "bottomIcon", id: 2, addNode: topMenu, src: "")
+        createLink(xK: 0.50*widthHeight, yK:0.89, w: 0.25*widthHeight, h: 0.06, bgColor: altColor, linkText: "", image: "bottomIcon", id: 3, addNode: topMenu, src: "")
+        createLink(xK: 0.75*widthHeight, yK:0.89, w: 0.25*widthHeight, h: 0.06, bgColor: altColor, linkText: "", image: "bottomIcon", id: 4, addNode: topMenu, src: "")
+        
+        topMenu.zPosition = 20
+        
+        addChild(topMenu)
+        
+        
+        // Bottomnode
+        
+        createLink(xK: 0.0, yK:0, w: 0.25*widthHeight, h: 0.06, bgColor: altColor, linkText: "", image: "bottomIcon", id: 1, addNode: bottomNode, src: "T" + String(describing : GameScene.defaultTeam))
+        createLink(xK: 0.25*widthHeight, yK:0, w: 0.25*widthHeight, h: 0.06, bgColor: altColor, linkText: "", image: "bottomIcon", id: 2, addNode: bottomNode, src: "S" + String(describing : GameScene.defaultSeries))
+        createLink(xK: 0.50*widthHeight, yK:0, w: 0.25*widthHeight, h: 0.06, bgColor: altColor, linkText: "", image: "bottomIcon", id: 3, addNode: bottomNode, src: "World")
+        createLink(xK: 0.75*widthHeight, yK:0, w: 0.25*widthHeight, h: 0.06, bgColor: altColor, linkText: "", image: "bottomIcon", id: 4, addNode: bottomNode, src: "News")
+        
+        bottomNode.zPosition = 20
+        
+        addChild(bottomNode)
         
         let baseStat1 = statNode(stat: "Ålder:", value: String(actPlayer.age))
         let baseStat2 = statNode(stat: "Position:", value: "FW/MF/DF")
@@ -45,7 +82,6 @@ class playerView: modScene {
         
         
         addChild(topNode)
-        topNode.addChild(header)
         
         face.position = CGPoint(x: screenSize.height*0.125, y: screenSize.height*0.8)
         face.size = CGSize(width: screenSize.height*0.2, height: screenSize.height*0.2)

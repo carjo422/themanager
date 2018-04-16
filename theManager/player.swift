@@ -25,6 +25,8 @@ class playerObject: AnyObject {
     var defence:Int
     var golie:Int
     
+    var position:String
+    
     var leftFoot:Int
     var rightFoot:Int
     
@@ -37,6 +39,7 @@ class playerObject: AnyObject {
     var handling:Int
     var courage:Int
     var moral:Int
+    var form:Int
     var teamplay:Int
     var stamina:Int
     var total:CGFloat
@@ -54,6 +57,21 @@ class playerObject: AnyObject {
         self.defence=1
         self.golie=1
         
+        self.position = ""
+        
+        if self.forward > 0 {
+            self.position = self.position + "F"
+        }
+        if self.midfield > 0 {
+            self.position = self.position + "M"
+        }
+        if self.defence > 0 {
+            self.position = self.position + "D"
+        }
+        if self.golie > 0 {
+            self.position = self.position + "G"
+        }
+        
         self.leftFoot=1
         self.rightFoot=1
         
@@ -66,6 +84,7 @@ class playerObject: AnyObject {
         self.handling = 5
         self.courage = 5
         self.moral = 5
+        self.form = 5
         self.teamplay = 5
         self.stamina = 5
         

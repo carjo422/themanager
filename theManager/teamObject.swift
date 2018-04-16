@@ -103,7 +103,7 @@ class teamObject: AnyObject {
         }
         
 
-        GameScene.teams.insert(self, at: id-1)
+        GameScene.teams.insert(self, at: id)
         
         
     }
