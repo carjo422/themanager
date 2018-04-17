@@ -126,13 +126,34 @@ class teamObject: AnyObject {
         
         self.players[position].age = 13
         
-        self.players[position].forward = 1
-        self.players[position].midfield = 0
-        self.players[position].defence = 0
-        self.players[position].golie = 0
+        if position < 3 {
+            self.players[position].golie = 5+Int(arc4random_uniform(5)+1)
+            self.players[position].forward = Int(arc4random_uniform(4)+1)
+            self.players[position].midfield = Int(arc4random_uniform(4)+1)
+            self.players[position].defence = Int(arc4random_uniform(4)+1)
+        }
+        else {
         
-        self.players[position].leftFoot = 1
-        self.players[position].rightFoot = 0
+        self.players[position].golie = Int(arc4random_uniform(3)+1)
+        self.players[position].forward = Int(arc4random_uniform(9)+1)
+        self.players[position].midfield = Int(arc4random_uniform(9)+1)
+        self.players[position].defence = Int(arc4random_uniform(9)+1)
+            
+        for i in 1...5 {
+                if max(self.players[position].golie,self.players[position].forward,self.players[position].midfield,self.players[position].defence) < 6 {
+                    self.players[position].golie = self.players[position].golie + 1
+                    self.players[position].forward = self.players[position].forward + 1
+                    self.players[position].midfield = self.players[position].midfield + 1
+                    self.players[position].defence = self.players[position].defence + 1
+                }
+            }
+            
+        }
+        
+        self.players[position].leftFoot = Int(arc4random_uniform(1))
+        self.players[position].rightFoot = Int(arc4random_uniform(1))
+        
+        self.players[position].position = self.players[position].wPosition()
         
         self.players[position].speed = Int(arc4random_uniform(5)+1)
         self.players[position].skill = Int(arc4random_uniform(5)+1)
@@ -142,10 +163,17 @@ class teamObject: AnyObject {
         self.players[position].dribble = Int(arc4random_uniform(5)+1)
         self.players[position].handling = Int(arc4random_uniform(5)+1)
         self.players[position].courage = Int(arc4random_uniform(5)+1)
-        self.players[position].moral = Int(arc4random_uniform(5)+1)
         self.players[position].teamplay = Int(arc4random_uniform(5)+1)
         
-        self.players[position].id = GameScene.players.count+1
+        
+        self.players[position].moral = Int(arc4random_uniform(10)+1)
+        self.players[position].form = Int(arc4random_uniform(2))+Int(arc4random_uniform(2))+Int(arc4random_uniform(2))+Int(arc4random_uniform(2))+Int(arc4random_uniform(2))
+        self.players[position].luck = Int(arc4random_uniform(10)+1)
+        
+        
+        self.players[position].id = GameScene.players.count
+        
+        self.players[position].total = self.players[position].calcTotal()
         
         GameScene.players.insert(self.players[position], at: GameScene.players.count)
         

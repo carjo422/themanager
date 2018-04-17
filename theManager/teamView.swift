@@ -23,6 +23,10 @@ class teamView: modScene {
     var bottomNode = SKNode()
     
     var squadNode = SKNode()
+    
+    var sortList = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+    
+    var sortedStyle = 1
 
     
     override func didMove(to view: SKView) {
@@ -61,24 +65,100 @@ class teamView: modScene {
         
         let nPlayers = actTeam.countTeam()
         
-        createLink(xK: 0.0, yK: 0.82, w: 0.22, h: 0.045, bgColor: UIColor.white, linkText: "Namn:", image: "", id: 0, addNode: squadNode, src: "Z1")
-        createLink(xK: 0.22, yK: 0.82, w: 0.07, h: 0.045, bgColor: UIColor.white, linkText: "Pos:", image: "", id: 0, addNode: squadNode, src: "Z1")
-        createLink(xK: 0.29, yK: 0.82, w: 0.07, h: 0.045, bgColor: UIColor.white, linkText: "Skill:", image: "", id: 0, addNode: squadNode, src: "Z1")
-        createLink(xK: 0.36, yK: 0.82, w: 0.07, h: 0.045, bgColor: UIColor.white, linkText: "Form:", image: "", id: 0, addNode: squadNode, src: "Z1")
-        createLink(xK: 0.43, yK: 0.82, w: 0.07, h: 0.045, bgColor: UIColor.white, linkText: "Moral:", image: "", id: 0, addNode: squadNode, src: "Z1")
-        
-        for i in 1...nPlayers {
-            createLink(xK: 0.0, yK: 0.82-CGFloat(i)*0.045, w: 0.22, h: 0.045, bgColor: UIColor.white, linkText: GameScene.currTeam.players[i].forName + " " + GameScene.currTeam.players[i].surName, image: "", id: 0, addNode: squadNode, src: "P1")
-            createLink(xK: 0.22, yK: 0.82-CGFloat(i)*0.045, w: 0.07, h: 0.045, bgColor: UIColor.white, linkText: "" + GameScene.currTeam.players[i].position, image: "", id: 0, addNode: squadNode, src: "P1")
-            createLink(xK: 0.29, yK: 0.82-CGFloat(i)*0.045, w: 0.07, h: 0.045, bgColor: UIColor.white, linkText: String(describing: GameScene.currTeam.players[i].total), image: "", id: 0, addNode: squadNode, src: "P1")
-            createLink(xK: 0.36, yK: 0.82-CGFloat(i)*0.045, w: 0.07, h: 0.045, bgColor: UIColor.white, linkText: String(describing: GameScene.currTeam.players[i].form), image: "", id: 0, addNode: squadNode, src: "P1")
-            createLink(xK: 0.43, yK: 0.82-CGFloat(i)*0.045, w: 0.07, h: 0.045, bgColor: UIColor.white, linkText: String(describing: GameScene.currTeam.players[i].moral), image: "", id: 0, addNode: squadNode, src: "P1")
-        }
-        
-        addChild(squadNode)
+        createList()
         
     }
     
+    func createList() {
+        
+        createLink(xK: 0.0, yK: 0.82, w: 0.20, h: 0.04, bgColor: UIColor.white, linkText: "Namn", image: "", id: 0, addNode: squadNode, src: "Z1")
+        createLink(xK: 0.20, yK: 0.82, w: 0.07, h: 0.04, bgColor: UIColor.white, linkText: "Pos", image: "", id: 0, addNode: squadNode, src: "Z1")
+        createLink(xK: 0.27, yK: 0.82, w: 0.07, h: 0.04, bgColor: UIColor.white, linkText: "Skick", image: "", id: 0, addNode: squadNode, src: "Z1")
+        createLink(xK: 0.34, yK: 0.82, w: 0.07, h: 0.04, bgColor: UIColor.white, linkText: "Form", image: "", id: 0, addNode: squadNode, src: "Z1")
+        createLink(xK: 0.41, yK: 0.82, w: 0.07, h: 0.04, bgColor: UIColor.white, linkText: "Moral", image: "", id: 0, addNode: squadNode, src: "Z1")
+        createLink(xK: 0.48, yK: 0.82, w: 0.07, h: 0.04, bgColor: UIColor.white, linkText: "Lycka", image: "", id: 0, addNode: squadNode, src: "Z1")
+        
+        var k=0
+        
+        for i in sortList {
+            
+            k=k+1
+            
+            print(String(describing: i))
+            
+            createLink(xK: 0.0, yK: 0.82-CGFloat(k)*0.04, w: 0.2, h: 0.045, bgColor: UIColor.white, linkText: GameScene.currTeam.players[i].forName + " " + GameScene.currTeam.players[i].surName, image: "", id: 20000+i, addNode: squadNode, src: "P" + String(GameScene.currTeam.players[i].id))
+            createLink(xK: 0.20, yK: 0.82-CGFloat(k)*0.04, w: 0.07, h: 0.045, bgColor: UIColor.white, linkText: "" + GameScene.currTeam.players[i].position, image: "", id: 20100+i, addNode: squadNode, src: "P" + String(GameScene.currTeam.players[i].id))
+            createLink(xK: 0.27, yK: 0.82-CGFloat(k)*0.04, w: 0.07, h: 0.045, bgColor: UIColor.white, linkText: String(describing: GameScene.currTeam.players[i].total), image: "", id: 20200+i, addNode: squadNode, src: "P" + String(GameScene.currTeam.players[i].id))
+            createLink(xK: 0.34, yK: 0.82-CGFloat(k)*0.04, w: 0.07, h: 0.045, bgColor: UIColor.white, linkText: String(describing: GameScene.currTeam.players[i].form), image: "", id: 20300+i, addNode: squadNode, src: "P" + String(GameScene.currTeam.players[i].id))
+            createLink(xK: 0.41, yK: 0.82-CGFloat(k)*0.04, w: 0.07, h: 0.045, bgColor: UIColor.white, linkText: String(describing: GameScene.currTeam.players[i].moral), image: "", id: 20400+i, addNode: squadNode, src: "P" + String(GameScene.currTeam.players[i].id))
+            createLink(xK: 0.48, yK: 0.82-CGFloat(k)*0.04, w: 0.07, h: 0.045, bgColor: UIColor.white, linkText: String(describing: GameScene.currTeam.players[i].luck), image: "", id: 20400+i, addNode: squadNode, src: "P" + String(GameScene.currTeam.players[i].id))
+        }
+        
+        addChild(squadNode)
+    }
+    
+    func sortList(onVar: Int) {
+        
+        for i in 0...19 {
+            for j in 0...18 {
+                
+                if onVar == 1 {
+                    if GameScene.currTeam.players[sortList[j]].total < GameScene.currTeam.players[sortList[j+1]].total {
+                        switch_sortlist(i:i, j:j)
+                    }
+                }
+                if onVar == 2 {
+                    if GameScene.currTeam.players[sortList[j]].total > GameScene.currTeam.players[sortList[j+1]].total {
+                        switch_sortlist(i:i, j:j)
+                    }
+                }
+                if onVar == 3 {
+                    if GameScene.currTeam.players[sortList[j]].total < GameScene.currTeam.players[sortList[j+1]].form {
+                        switch_sortlist(i:i, j:j)
+                    }
+                }
+                if onVar == 4 {
+                    if GameScene.currTeam.players[sortList[j]].total > GameScene.currTeam.players[sortList[j+1]].form {
+                        switch_sortlist(i:i, j:j)
+                    }
+                }
+                if onVar == 5 {
+                    if GameScene.currTeam.players[sortList[j]].total < GameScene.currTeam.players[sortList[j+1]].moral {
+                        switch_sortlist(i:i, j:j)
+                    }
+                }
+                if onVar == 6 {
+                    if GameScene.currTeam.players[sortList[j]].total > GameScene.currTeam.players[sortList[j+1]].moral {
+                        switch_sortlist(i:i, j:j)
+                    }
+                }
+                if onVar == 7 {
+                    if GameScene.currTeam.players[sortList[j]].total < GameScene.currTeam.players[sortList[j+1]].luck {
+                        switch_sortlist(i:i, j:j)
+                    }
+                }
+                if onVar == 8 {
+                    if GameScene.currTeam.players[sortList[j]].total > GameScene.currTeam.players[sortList[j+1]].luck {
+                        switch_sortlist(i:i, j:j)
+                    }
+                }
+            }
+        
+        }
+        
+    }
+    
+    func switch_sortlist(i: Int,j: Int) {
+        
+        var temp1 = 0
+        var temp2 = 0
+        
+        temp1 = sortList[j]
+        temp2 = sortList[j+1]
+        
+        sortList[j] = temp2
+        sortList[j+1] = temp1
+    }
     
     func touchDown(atPoint pos : CGPoint) {
     }
@@ -90,6 +170,17 @@ class teamView: modScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        sortList(onVar: sortedStyle)
+        
+        squadNode.removeFromParent()
+        
+        for children in squadNode.children {
+            children.removeFromParent()
+        }
+        
+        createList()
+        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {

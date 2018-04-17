@@ -38,11 +38,12 @@ class playerObject: AnyObject {
     var dribble:Int
     var handling:Int
     var courage:Int
-    var moral:Int
-    var form:Int
     var teamplay:Int
     var stamina:Int
     var total:CGFloat
+    var moral:Int
+    var form:Int
+    var luck:Int
     
     
     init() {
@@ -83,10 +84,13 @@ class playerObject: AnyObject {
         self.dribble = 5
         self.handling = 5
         self.courage = 5
-        self.moral = 5
-        self.form = 5
         self.teamplay = 5
         self.stamina = 5
+        
+        
+        self.moral = 5
+        self.form = 5
+        self.luck = 5
         
         self.id = 0
         
@@ -100,6 +104,24 @@ class playerObject: AnyObject {
         return total
     }
     
+    func wPosition() -> String {
+        
+        var position = ""
+        
+        if self.forward > 5 {
+            position = position + "F"
+        }
+        if self.midfield > 5 {
+            position = position + "M"
+        }
+        if self.defence > 5 {
+            position = position + "D"
+        }
+        if self.golie > 5 {
+            position = position + "G"
+        }
+        return position
+    }
     
     
 }
