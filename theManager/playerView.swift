@@ -139,7 +139,7 @@ class playerView: modScene {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
-        let touchLocation = touch!.location(in: self)
+        _ = touch!.location(in: self)
         // Check if the location of the touch is within the button's bounds
         
         

@@ -82,7 +82,7 @@ class overView: modScene {
         
         addChild(bottomNode)
         
-        var nSeries = 4
+        let nSeries = 4
         
         for j in 0...nSeries-1 {
         
@@ -99,9 +99,8 @@ class overView: modScene {
         
         addChild(seriesNode)
         
-        for i in 0...31 {
-            print(String(GameScene.teams[i].id))
-        }
+        print(String(describing: calc_string(inString: "Cock")))
+        
         
     }
     

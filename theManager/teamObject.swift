@@ -139,7 +139,7 @@ class teamObject: AnyObject {
         self.players[position].midfield = Int(arc4random_uniform(9)+1)
         self.players[position].defence = Int(arc4random_uniform(9)+1)
             
-        for i in 1...5 {
+        for _ in 1...5 {
                 if max(self.players[position].golie,self.players[position].forward,self.players[position].midfield,self.players[position].defence) < 6 {
                     self.players[position].golie = self.players[position].golie + 1
                     self.players[position].forward = self.players[position].forward + 1

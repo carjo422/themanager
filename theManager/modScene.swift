@@ -56,21 +56,65 @@ class modScene: SKScene {
         addNode.addChild(lnk)
         
     }
-
     
+    func createLinkIntern(xK:CGFloat, yK:CGFloat, w:CGFloat, h:CGFloat, bgColor: UIColor, linkText: String, image: String, id: Int, addNode: SKNode, src: String)
+    {
+        
+        let xKa = xK*UIScreen.main.fixedCoordinateSpace.bounds.height
+        let yKa = yK*UIScreen.main.fixedCoordinateSpace.bounds.height
+        
+        let linkW = w*UIScreen.main.fixedCoordinateSpace.bounds.height
+        let linkH = h*UIScreen.main.fixedCoordinateSpace.bounds.height
+        
+        
+        let lnk = ilink(xD: xKa, yD: yKa, w: linkW, h: linkH, bgColor: bgColor, linkText: linkText, imageName: image, src: src)
+        lnk.id = id
+        addNode.addChild(lnk)
+        
+    }
     
-    /*override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for nods in self.children {
+    func calc_string(inString: String) -> Double {
+        
+        var inString_new = inString.replacingOccurrences(of: " ", with: "").lowercased()
+        
+        var output = Double(0)
+        let alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","x","y","z","å","ä","ö"]
+        
+        var it = Double(100)
+        
+        for char in inString_new.characters {
             
-            if let test = nods as? SKNode {
-            print("Fick me")
-                for links in nods.children as! [link] {
-                    
-                }
-            }
+            let charNum = alphabet.index(of: String(describing: char))!
+            
+            it = it/100
+            
+            output = output + Double(charNum)*it
             
         }
         
-    }*/
+        return output
+        
+    }
+    
+    func calc_pos(player: playerObject) -> Int {
+        
+        var output = 1
+        
+        let posA = player.golie
+        let posB = player.defence
+        let posC = player.midfield
+        let posD = player.forward
+        
+        let maxAtt = max(posA,posB,posC,posD)
+        
+        if maxAtt == player.forward { output = 4 }
+        if maxAtt == player.midfield { output = 3 }
+        if maxAtt == player.defence { output = 2 }
+        if maxAtt == player.golie { output = 1 }
+        
+        return output
+        
+    }
+
     
 }

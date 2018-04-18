@@ -23,7 +23,7 @@
 		7BE9D28E2067CD1A00BB0C17 /* matchObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE9D28D2067CD1A00BB0C17 /* matchObject.swift */; };
 		7BE9D2902067F7F900BB0C17 /* player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE9D28F2067F7F900BB0C17 /* player.swift */; };
 		7BE9D2922068170800BB0C17 /* teamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE9D2912068170800BB0C17 /* teamView.swift */; };
-		7BEE1431206CC92900D024E3 /* link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE1430206CC92900D024E3 /* link.swift */; };
+		7BEE1431206CC92900D024E3 /* items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE1430206CC92900D024E3 /* items.swift */; };
 		7BEE1433206D11FA00D024E3 /* playerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE1432206D11FA00D024E3 /* playerView.swift */; };
 		7BEE1435206D57BE00D024E3 /* statNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE1434206D57BE00D024E3 /* statNode.swift */; };
 		7BEFA2D02083E2FC00960D8C /* overView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEFA2CF2083E2FC00960D8C /* overView.swift */; };
@@ -50,7 +50,7 @@
 		7BE9D28D2067CD1A00BB0C17 /* matchObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchObject.swift; sourceTree = "<group>"; };
 		7BE9D28F2067F7F900BB0C17 /* player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = player.swift; sourceTree = "<group>"; };
 		7BE9D2912068170800BB0C17 /* teamView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = teamView.swift; sourceTree = "<group>"; };
-		7BEE1430206CC92900D024E3 /* link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = link.swift; sourceTree = "<group>"; };
+		7BEE1430206CC92900D024E3 /* items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = items.swift; sourceTree = "<group>"; };
 		7BEE1432206D11FA00D024E3 /* playerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = playerView.swift; sourceTree = "<group>"; };
 		7BEE1434206D57BE00D024E3 /* statNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = statNode.swift; sourceTree = "<group>"; };
 		7BEFA2CF2083E2FC00960D8C /* overView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = overView.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 				7BB7DF8F2070D993006E5362 /* scrollNode.swift */,
 				7BEE1434206D57BE00D024E3 /* statNode.swift */,
 				7B5C22A3206E0FBB007B1F9C /* meter.swift */,
-				7BEE1430206CC92900D024E3 /* link.swift */,
+				7BEE1430206CC92900D024E3 /* items.swift */,
 				7BF49CB6206A7CA200E980F6 /* topHeader.swift */,
 				7BE9D28F2067F7F900BB0C17 /* player.swift */,
 				7BE9D28B2067B89100BB0C17 /* serie.swift */,
@@ -194,7 +194,7 @@
 				7BB7DF902070D993006E5362 /* scrollNode.swift in Sources */,
 				7BE9D2762067A0B900BB0C17 /* GameScene.swift in Sources */,
 				7BE9D2882067A78200BB0C17 /* teamObject.swift in Sources */,
-				7BEE1431206CC92900D024E3 /* link.swift in Sources */,
+				7BEE1431206CC92900D024E3 /* items.swift in Sources */,
 				7BE9D2782067A0B900BB0C17 /* GameViewController.swift in Sources */,
 				7BF49CB7206A7CA200E980F6 /* topHeader.swift in Sources */,
 				7BE9D2922068170800BB0C17 /* teamView.swift in Sources */,

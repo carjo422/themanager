@@ -106,20 +106,64 @@ class playerObject: AnyObject {
     
     func wPosition() -> String {
         
-        var position = ""
+        var position = "AT,MF,BK"
         
-        if self.forward > 5 {
-            position = position + "F"
+        let maxPos = max(self.forward, self.midfield, self.defence, self.golie)
+        
+        if maxPos == self.forward {
+            position = "AT"
+            if self.midfield > 5 {
+                position = position + ",MF"
+            }
+            if self.defence > 5 {
+                position = position + ",BK"
+            }
+            if self.golie > 5 {
+                position = position + ",MV"
+            }
         }
-        if self.midfield > 5 {
-            position = position + "M"
+        
+        if maxPos == self.midfield {
+            position = "MF"
+            if self.forward > 5 {
+                position = position + ",AT"
+            }
+            if self.defence > 5 {
+                position = position + ",BK"
+            }
+            if self.golie > 5 {
+                position = position + ",MV"
+            }
         }
-        if self.defence > 5 {
-            position = position + "D"
+        
+        if maxPos == self.defence {
+            position = "BK"
+            if self.forward > 5 {
+                position = position + ",AT"
+            }
+            if self.midfield > 5 {
+                position = position + ",MF"
+            }
+            if self.golie > 5 {
+                position = position + ",MV"
+            }
         }
-        if self.golie > 5 {
-            position = position + "G"
+        
+        if maxPos == self.golie {
+            position = "MV"
+            if self.forward > 5 {
+                position = position + ",AT"
+            }
+            if self.midfield > 5 {
+                position = position + ",MF"
+            }
+            if self.defence > 5 {
+                position = position + ",BC"
+            }
         }
+        
+        
+        
         return position
     }
     
